@@ -1,0 +1,46 @@
+[
+  {
+    "screenId": "3c6955e5ccfb4748a078ad6a7f1b4ff2",
+    "title": "Settings and Preferences - PulseBoard Canary",
+    "htmlFile": "3c6955e5ccfb4748a078ad6a7f1b4ff2.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzEzNjE1ZjY4NGRkZDRmNDhiZGYyNjg0ZWQ4NWE4NTdhEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzU3Mjk3NDA2NDkwMDM0MzMz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulseboard-canary-d5550285/stitch/3c6955e5ccfb4748a078ad6a7f1b4ff2.html",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  },
+  {
+    "screenId": "9fdbdb89d1524edab1fc90c2ec98f3e6",
+    "title": "Record Operations - PulseBoard Canary",
+    "htmlFile": "9fdbdb89d1524edab1fc90c2ec98f3e6.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzg0MWJhNjc4NTBmODRhN2NiMWFjNjRhZGM3NjM0ZmM2EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzU3Mjk3NDA2NDkwMDM0MzMz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulseboard-canary-d5550285/stitch/9fdbdb89d1524edab1fc90c2ec98f3e6.html",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "97fbfcb3dd834a02b8e36cbc73d602b1",
+    "title": "Empty and Error Recovery - PulseBoard Canary",
+    "htmlFile": "97fbfcb3dd834a02b8e36cbc73d602b1.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzI0NWU1NGIxMWZiMDQ3MTBiOWRmNzIxMzBkNDMwYzgxEgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzU3Mjk3NDA2NDkwMDM0MzMz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulseboard-canary-d5550285/stitch/97fbfcb3dd834a02b8e36cbc73d602b1.html",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "dabe5bf52ebc44398304e62bb56fcfb4",
+    "title": "Record Editor - PulseBoard Canary",
+    "htmlFile": "dabe5bf52ebc44398304e62bb56fcfb4.html",
+    "deviceType": "DESKTOP",
+    "htmlUrl": "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ7Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpaCiVodG1sXzUxNzU2MjY2ZTg0NTRiZDViOTJmZmFmZjdiOTU4YjA4EgsSBxCN19Wi9xcYAZIBIwoKcHJvamVjdF9pZBIVQhMyMzU3Mjk3NDA2NDkwMDM0MzMz&filename=&opi=96797242",
+    "localHtml": "/Users/setrox/projects/pulseboard-canary-d5550285/stitch/dabe5bf52ebc44398304e62bb56fcfb4.html",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  }
+]

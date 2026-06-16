@@ -1,0 +1,38 @@
+[
+  {
+    "screenId": "3c6955e5ccfb4748a078ad6a7f1b4ff2",
+    "name": "Settings and Preferences - PulseBoard Canary",
+    "type": "settings",
+    "description": "Settings and Preferences - PulseBoard Canary screen",
+    "surfaceIds": [
+      "SURF_SETTINGS_AND_PREFERENCES"
+    ]
+  },
+  {
+    "screenId": "9fdbdb89d1524edab1fc90c2ec98f3e6",
+    "name": "Record Operations - PulseBoard Canary",
+    "type": "app-screen",
+    "description": "Record Operations - PulseBoard Canary screen",
+    "surfaceIds": [
+      "SURF_RECORD_OPERATIONS"
+    ]
+  },
+  {
+    "screenId": "97fbfcb3dd834a02b8e36cbc73d602b1",
+    "name": "Empty and Error Recovery - PulseBoard Canary",
+    "type": "error",
+    "description": "Empty and Error Recovery - PulseBoard Canary screen",
+    "surfaceIds": [
+      "SURF_EMPTY_AND_ERROR_RECOVERY"
+    ]
+  },
+  {
+    "screenId": "dabe5bf52ebc44398304e62bb56fcfb4",
+    "name": "Record Editor - PulseBoard Canary",
+    "type": "form",
+    "description": "Record Editor - PulseBoard Canary screen",
+    "surfaceIds": [
+      "SURF_RECORD_EDITOR"
+    ]
+  }
+]

@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseBoard Canary - Record Editor</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#5c647a",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#4f4633",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#d3c5ac",
+                        "surface-tint": "#785a00",
+                        "primary-container": "#eab308",
+                        "on-primary-fixed": "#251a00",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#eec200",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary": "#565e74",
+                        "primary-fixed-dim": "#f7be1d",
+                        "inverse-primary": "#f7be1d",
+                        "tertiary": "#735c00",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-background": "#0b1c30",
+                        "tertiary-container": "#e1b700",
+                        "on-primary-container": "#604700",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "outline": "#817660",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#ffdf9a",
+                        "on-tertiary-container": "#5c4900",
+                        "primary": "#785a00",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill {
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        /* Custom scrollbar for data density */
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #d3c5ac; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #817660; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md h-screen overflow-hidden flex">
+<!-- SideNavBar -->
+<nav class="h-screen w-64 flex flex-col sticky left-0 top-0 border-r border-outline-variant dark:border-outline bg-surface-container dark:bg-on-secondary-fixed text-primary dark:text-primary-fixed-dim font-body-md text-body-md flex flex-col gap-sm p-md h-full z-20">
+<!-- Header -->
+<div class="mb-lg flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold shadow-sm">PA</div>
+<div class="flex-1 min-w-0">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim truncate">PulseBoard</div>
+<div class="text-on-secondary-container text-body-sm truncate">Canary v1.0</div>
+</div>
+</div>
+<!-- CTA -->
+<button class="mb-md w-full bg-primary-container text-on-primary-container font-headline-md text-headline-md py-sm px-md rounded-lg hover:bg-tertiary-fixed transition-all duration-150 flex items-center justify-center gap-sm shadow-sm border border-transparent">
+<span class="material-symbols-outlined">add</span> New Record
+        </button>
+<!-- Tabs -->
+<ul class="flex flex-col gap-unit flex-1">
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">analytics</span> Operations
+                </a>
+</li>
+<li>
+<!-- Active State Logic Applied Here based on prompt intent -->
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-lg font-semibold transition-all duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined">edit_note</span> Editor
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">medication</span> Recovery
+                </a>
+</li>
+</ul>
+<!-- Footer Tabs -->
+<ul class="flex flex-col gap-unit mt-auto border-t border-outline-variant pt-sm">
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">support</span> Support
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-sm px-md py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined">history</span> Logs
+                </a>
+</li>
+</ul>
+</nav>
+<!-- Main Workspace Area -->
+<div class="flex-1 flex flex-col min-w-0 bg-background">
+<!-- TopNavBar -->
+<header class="flex justify-between items-center w-full px-lg py-sm h-16 bg-surface-container-lowest dark:bg-on-surface text-primary dark:text-primary-fixed-dim font-headline-md text-headline-md docked full-width top-0 border-b border-outline-variant dark:border-outline duration-200 ease-in-out z-10 shrink-0">
+<div class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">PulseBoard Canary</div>
+<div class="flex items-center gap-md">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute right-sm text-on-surface-variant pointer-events-none text-body-md">search</span>
+<input class="pl-sm pr-xl py-xs w-64 bg-surface-container-low border border-outline-variant rounded focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all font-body-sm text-body-sm text-on-surface placeholder-on-surface-variant" placeholder="Search records..." type="text"/>
+</div>
+<div class="flex items-center gap-unit">
+<button aria-label="help" class="w-8 h-8 flex items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors rounded-full">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button aria-label="account_circle" class="w-8 h-8 flex items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors rounded-full">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 overflow-y-auto relative flex flex-col items-center py-lg px-gutter md:px-lg lg:px-xl">
+<!-- Unsaved Changes Banner (Sticky) -->
+<div class="w-full max-w-[container-max] mb-lg bg-tertiary-fixed text-on-tertiary-fixed border border-primary-container rounded-lg p-sm flex items-center justify-between shadow-sm animate-pulse" style="animation-duration: 3s;">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined fill text-primary">warning</span>
+<span class="font-headline-md text-body-md font-semibold">You have unsaved changes</span>
+</div>
+<div class="flex gap-sm">
+<button class="px-sm py-xs text-body-sm font-semibold text-on-tertiary-fixed hover:bg-surface-tint/10 rounded transition-colors">Discard</button>
+<button class="px-sm py-xs bg-primary text-on-primary text-body-sm font-semibold rounded hover:bg-surface-tint transition-colors">Save Now</button>
+</div>
+</div>
+<!-- Page Header -->
+<div class="w-full max-w-[container-max] mb-lg flex justify-between items-end">
+<div>
+<div class="flex items-center gap-sm text-on-surface-variant mb-unit">
+<a class="hover:text-primary transition-colors font-body-sm text-body-sm" href="#">Operations</a>
+<span class="material-symbols-outlined" style="font-size: 16px;">chevron_right</span>
+<span class="font-body-sm text-body-sm">Records</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-surface">Edit Record: <span class="font-label-mono text-headline-md ml-sm px-sm py-unit bg-surface-container rounded border border-outline-variant text-primary">REC-8492A</span></h1>
+</div>
+<div class="flex gap-md">
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant text-on-surface rounded-lg hover:bg-surface-container-low transition-colors font-headline-md text-body-md shadow-sm">Cancel</button>
+<button class="px-md py-sm bg-primary-container text-on-primary-container rounded-lg hover:bg-tertiary-fixed transition-colors font-headline-md text-body-md flex items-center gap-sm shadow-sm">
+<span class="material-symbols-outlined" style="font-size: 18px;">save</span> Save Record
+                    </button>
+</div>
+</div>
+<!-- Editor Form Container (Bento Grid Style) -->
+<div class="w-full max-w-[container-max] grid grid-cols-1 lg:grid-cols-12 gap-lg pb-xl">
+<!-- Primary Details Column -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Core Information Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-bright border-b border-outline-variant px-md py-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Core Information</h2>
+</div>
+<div class="p-md flex flex-col gap-lg">
+<!-- Record Name (Error State Example) -->
+<div class="flex flex-col gap-unit relative">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs" for="recordName">
+                                    Record Name <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-error rounded px-sm py-sm focus:outline-none focus:ring-1 focus:ring-error text-on-surface font-body-md text-body-md transition-shadow" id="recordName" type="text" value=""/>
+<div class="text-error font-body-sm text-body-sm flex items-center gap-xs mt-xs">
+<span class="material-symbols-outlined" style="font-size: 14px;">error</span> Name is required
+                                </div>
+</div>
+<!-- Description (Optional) -->
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex justify-between" for="recordDescription">
+<span>Description <span class="text-on-surface-variant font-normal">(Optional)</span></span>
+<span class="text-on-surface-variant font-label-mono text-label-mono">0 / 500</span>
+</label>
+<textarea class="w-full bg-surface-container-lowest border border-outline-variant rounded px-sm py-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-body-md text-body-md resize-y transition-shadow" id="recordDescription" rows="4"></textarea>
+</div>
+</div>
+</section>
+<!-- Technical Parameters Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-bright border-b border-outline-variant px-md py-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Technical Parameters</h2>
+</div>
+<div class="p-md grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs" for="endpointUrl">
+                                    Endpoint URL <span class="text-error">*</span>
+</label>
+<div class="flex">
+<span class="inline-flex items-center px-sm rounded-l border border-r-0 border-outline-variant bg-surface-container-low text-on-surface-variant font-label-mono text-label-mono">https://</span>
+<input class="flex-1 min-w-0 bg-surface-container-lowest border border-outline-variant rounded-r px-sm py-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-label-mono text-body-sm transition-shadow" id="endpointUrl" type="text" value="api.internal.pulse/v2/data"/>
+</div>
+</div>
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs" for="timeout">
+                                    Timeout (ms) <span class="text-error">*</span>
+</label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded px-sm py-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-label-mono text-body-sm transition-shadow" id="timeout" type="number" value="5000"/>
+</div>
+</div>
+</section>
+</div>
+<!-- Secondary Metadata Column -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Classification Card -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden">
+<div class="bg-surface-bright border-b border-outline-variant px-md py-sm">
+<h2 class="font-headline-md text-headline-md text-on-surface">Classification</h2>
+</div>
+<div class="p-md flex flex-col gap-lg">
+<!-- Status -->
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs mb-xs">
+                                    Status <span class="text-error">*</span>
+</label>
+<div class="flex gap-sm">
+<label class="flex-1 cursor-pointer">
+<input checked="" class="peer sr-only" name="status" type="radio" value="active"/>
+<div class="text-center px-sm py-xs border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant peer-checked:bg-primary-container/20 peer-checked:border-primary-container peer-checked:text-on-primary-fixed peer-checked:font-semibold transition-all">
+                                            Active
+                                        </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="status" type="radio" value="draft"/>
+<div class="text-center px-sm py-xs border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant peer-checked:bg-surface-variant peer-checked:border-on-surface-variant peer-checked:text-on-surface peer-checked:font-semibold transition-all">
+                                            Draft
+                                        </div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="peer sr-only" name="status" type="radio" value="archived"/>
+<div class="text-center px-sm py-xs border border-outline-variant rounded bg-surface-container-lowest text-on-surface-variant peer-checked:bg-error-container peer-checked:border-error peer-checked:text-on-error-container peer-checked:font-semibold transition-all">
+                                            Archived
+                                        </div>
+</label>
+</div>
+</div>
+<!-- Category -->
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs" for="category">
+                                    Category <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border border-outline-variant rounded px-sm py-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-body-md text-body-md pr-xl transition-shadow cursor-pointer" id="category">
+<option disabled="" value="">Select category</option>
+<option value="infrastructure">Infrastructure</option>
+<option selected="" value="application">Application Logic</option>
+<option value="security">Security</option>
+<option value="network">Network Routing</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<!-- Priority -->
+<div class="flex flex-col gap-unit">
+<label class="font-headline-md text-body-sm text-on-surface flex items-center gap-xs" for="priority">
+                                    Priority <span class="text-error">*</span>
+</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border border-outline-variant rounded px-sm py-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container text-on-surface font-body-md text-body-md pr-xl transition-shadow cursor-pointer" id="priority">
+<option value="p1">P1 - Critical</option>
+<option selected="" value="p2">P2 - High</option>
+<option value="p3">P3 - Medium</option>
+<option value="p4">P4 - Low</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Audit Trail Snippet -->
+<section class="bg-surface-bright border border-outline-variant rounded-xl p-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant tracking-wider mb-sm uppercase">Audit Metadata</h3>
+<div class="flex flex-col gap-sm font-label-mono text-label-mono text-on-surface-variant">
+<div class="flex justify-between border-b border-outline-variant/50 pb-xs">
+<span>Created:</span>
+<span class="text-on-surface">2023-10-27 14:32Z</span>
+</div>
+<div class="flex justify-between border-b border-outline-variant/50 pb-xs">
+<span>Author:</span>
+<span class="text-on-surface">System Agent</span>
+</div>
+<div class="flex justify-between pb-xs">
+<span>Last Mod:</span>
+<span class="text-primary font-semibold">Unsaved Changes</span>
+</div>
+</div>
+</section>
+</div>
+</div>
+</main>
+</div>
+</body></html>

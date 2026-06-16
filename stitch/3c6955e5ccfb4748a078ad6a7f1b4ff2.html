@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseBoard Canary - Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#5c647a",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#4f4633",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#d3c5ac",
+                        "surface-tint": "#785a00",
+                        "primary-container": "#eab308",
+                        "on-primary-fixed": "#251a00",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#eec200",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary": "#565e74",
+                        "primary-fixed-dim": "#f7be1d",
+                        "inverse-primary": "#f7be1d",
+                        "tertiary": "#735c00",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-background": "#0b1c30",
+                        "tertiary-container": "#e1b700",
+                        "on-primary-container": "#604700",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "outline": "#817660",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#ffdf9a",
+                        "on-tertiary-container": "#5c4900",
+                        "primary": "#785a00",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-mono": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                        "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+                        "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "display-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background-color: #dce9ff; border-radius: 10px; }
+        .switch-peer:checked ~ .switch-knob { transform: translateX(100%); background-color: white; }
+        .switch-peer:checked ~ .switch-bg { background-color: #eab308; }
+        .input-glow:focus-within { border-color: #eab308; box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.2); outline: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md text-body-md antialiased overflow-hidden flex h-screen w-full">
+<!-- SideNavBar -->
+<nav class="bg-surface-container dark:bg-on-secondary-fixed h-screen w-64 flex flex-col sticky left-0 top-0 border-r border-outline-variant dark:border-outline flex-shrink-0 hidden md:flex">
+<div class="flex flex-col gap-sm p-md h-full">
+<div class="mb-xl flex items-center gap-md px-sm pt-sm">
+<div class="h-10 w-10 bg-primary-container rounded flex items-center justify-center text-on-primary-container font-bold text-headline-md font-headline-md flex-shrink-0">
+                    P
+                </div>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight leading-tight">PulseBoard</h1>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Canary v1.0</span>
+</div>
+</div>
+<button class="w-full bg-surface-container-lowest border border-outline-variant hover:bg-surface-container-high transition-all duration-150 rounded text-primary font-bold py-md flex justify-center items-center gap-sm mb-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Record
+            </button>
+<div class="flex-grow flex flex-col gap-unit">
+<a class="flex items-center gap-md px-sm py-md text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">analytics</span>
+                    Operations
+                </a>
+<a class="flex items-center gap-md px-sm py-md text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">edit_note</span>
+                    Editor
+                </a>
+<a class="flex items-center gap-md px-sm py-md bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-lg font-semibold transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-md px-sm py-md text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150" href="#">
+<span class="material-symbols-outlined text-xl">medication</span>
+                    Recovery
+                </a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-sm flex flex-col gap-unit">
+<a class="flex items-center gap-md px-sm py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined text-lg">support</span>
+                    Support
+                </a>
+<a class="flex items-center gap-md px-sm py-sm text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg transition-all duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined text-lg">history</span>
+                    Logs
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<div class="flex-grow flex flex-col h-screen overflow-hidden">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-on-surface border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-lg py-sm h-16 flex-shrink-0 z-10">
+<div class="flex items-center md:hidden">
+<h1 class="font-display-lg text-display-lg font-bold text-primary dark:text-primary-fixed-dim tracking-tight">PulseBoard Canary</h1>
+</div>
+<div class="hidden md:flex flex-1 max-w-xl justify-end ml-auto mr-lg">
+<div class="relative w-64 group">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface border border-outline-variant rounded pl-xl pr-sm py-sm font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all text-on-surface placeholder-on-surface-variant" placeholder="Search parameters..." type="text"/>
+<div class="absolute right-xs top-1/2 -translate-y-1/2 flex gap-xs">
+<kbd class="hidden lg:inline-block bg-surface-container px-unit py-px rounded font-label-mono text-[10px] text-on-surface-variant border border-outline-variant">⌘</kbd>
+<kbd class="hidden lg:inline-block bg-surface-container px-unit py-px rounded font-label-mono text-[10px] text-on-surface-variant border border-outline-variant">K</kbd>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors duration-200 ease-in-out rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors duration-200 ease-in-out rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Settings Canvas -->
+<main class="flex-grow overflow-y-auto custom-scrollbar p-lg md:p-xl bg-background">
+<div class="max-w-4xl mx-auto">
+<div class="flex justify-between items-end mb-xl border-b border-outline-variant pb-md">
+<div>
+<h2 class="font-display-lg text-display-lg font-bold text-on-surface tracking-tight mb-xs">Settings &amp; Preferences</h2>
+<p class="text-on-surface-variant font-body-sm text-body-sm">Configure workflow parameters and operational thresholds.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-md py-sm bg-surface-container-lowest text-on-surface border border-outline-variant rounded font-body-sm text-body-sm hover:bg-surface-container transition-colors">
+                            Reset to Defaults
+                        </button>
+<button class="px-md py-sm bg-primary-container text-on-primary-fixed rounded font-body-sm text-body-sm font-medium hover:bg-tertiary-fixed transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined text-sm">save</span>
+                            Save Preferences
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-xl">
+<!-- Left Column: Primary Settings -->
+<div class="lg:col-span-2 flex flex-col gap-lg">
+<!-- Workflow Preferences -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-lg">
+<div class="flex items-center gap-sm mb-lg pb-sm border-b border-surface-container">
+<span class="material-symbols-outlined text-primary">tune</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Workflow Preferences</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<!-- Default View Mode -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Default View Mode</label>
+<div class="relative input-glow border border-outline-variant rounded bg-surface">
+<select class="w-full appearance-none bg-transparent py-sm pl-md pr-xl font-body-sm text-body-sm text-on-surface focus:outline-none">
+<option value="dense">High Density List</option>
+<option value="comfortable">Comfortable Grid</option>
+<option value="kanban">Board View</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+<!-- Data Refresh Interval -->
+<div class="flex flex-col gap-sm">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Data Refresh Interval (ms)</label>
+<div class="flex items-center gap-sm input-glow border border-outline-variant rounded bg-surface px-md py-sm">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">timer</span>
+<input class="w-full bg-transparent border-none p-0 font-label-mono text-label-mono text-on-surface focus:ring-0" type="number" value="5000"/>
+</div>
+</div>
+<!-- Auto-Save Toggle -->
+<div class="md:col-span-2 flex items-center justify-between p-md bg-surface-container-low rounded border border-surface-container-high mt-sm">
+<div>
+<span class="block font-body-md text-body-md font-medium text-on-surface">Auto-save Draft Records</span>
+<span class="block font-body-sm text-body-sm text-on-surface-variant mt-px">Automatically persist changes to local storage every 30s.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only switch-peer" type="checkbox" value=""/>
+<div class="switch-bg w-11 h-6 bg-surface-dim rounded-full peer peer-focus:ring-2 peer-focus:ring-primary-container transition-colors duration-200"></div>
+<div class="switch-knob absolute left-[2px] top-[2px] bg-white border border-outline-variant rounded-full h-5 w-5 transition-transform duration-200"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- Notification Density -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded p-lg">
+<div class="flex items-center gap-sm mb-md pb-sm border-b border-surface-container">
+<span class="material-symbols-outlined text-primary">notifications_active</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Notification Density</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-md">Control the verbosity of system alerts and status updates.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-md">
+<!-- Option: Low -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="notif_density" type="radio" value="low"/>
+<div class="p-md rounded border border-outline-variant peer-checked:border-primary-container peer-checked:bg-surface-container-low transition-all h-full flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-medium text-on-surface">Low</span>
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-primary-container text-sm">filter_1</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Critical alerts and errors only. Suppresses routine logs.</span>
+</div>
+</label>
+<!-- Option: Standard -->
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="notif_density" type="radio" value="standard"/>
+<div class="p-md rounded border border-primary-container bg-surface-container-low transition-all h-full flex flex-col gap-sm relative overflow-hidden">
+<div class="absolute top-0 right-0 w-8 h-8 bg-primary-container/10 rounded-bl-full"></div>
+<div class="flex justify-between items-center z-10">
+<span class="font-body-md text-body-md font-medium text-on-surface">Standard</span>
+<span class="material-symbols-outlined text-primary text-sm">filter_2</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight z-10">Balanced approach. Warnings, errors, and task completions.</span>
+</div>
+</label>
+<!-- Option: High -->
+<label class="cursor-pointer">
+<input class="peer sr-only" name="notif_density" type="radio" value="high"/>
+<div class="p-md rounded border border-outline-variant peer-checked:border-primary-container peer-checked:bg-surface-container-low transition-all h-full flex flex-col gap-sm">
+<div class="flex justify-between items-center">
+<span class="font-body-md text-body-md font-medium text-on-surface">High</span>
+<span class="material-symbols-outlined text-on-surface-variant peer-checked:text-primary-container text-sm">filter_3</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-tight">Verbose. All state changes, background tasks, and debug logs.</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Secondary / Management -->
+<div class="flex flex-col gap-lg">
+<!-- Saved Filters -->
+<section class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col h-full max-h-[500px]">
+<div class="p-md border-b border-surface-container flex justify-between items-center bg-surface-bright rounded-t">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-sm">filter_list</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Saved Filters</h3>
+</div>
+<button class="text-primary hover:bg-surface-container p-unit rounded transition-colors" title="Add Filter">
+<span class="material-symbols-outlined text-md">add</span>
+</button>
+</div>
+<div class="overflow-y-auto custom-scrollbar flex-grow p-sm flex flex-col gap-unit">
+<!-- Filter Item -->
+<div class="group flex items-center justify-between p-sm hover:bg-surface-container-low rounded border border-transparent hover:border-surface-container-high transition-colors">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">label</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Q3 Anomalies</span>
+</div>
+<div class="flex gap-unit opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-unit"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="text-on-surface-variant hover:text-error p-unit"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<!-- Filter Item -->
+<div class="group flex items-center justify-between p-sm hover:bg-surface-container-low rounded border border-transparent hover:border-surface-container-high transition-colors">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">label</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">High Priority Tickets</span>
+</div>
+<div class="flex gap-unit opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-unit"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="text-on-surface-variant hover:text-error p-unit"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<!-- Filter Item -->
+<div class="group flex items-center justify-between p-sm hover:bg-surface-container-low rounded border border-transparent hover:border-surface-container-high transition-colors">
+<div class="flex items-center gap-sm overflow-hidden">
+<span class="material-symbols-outlined text-on-surface-variant text-sm">label</span>
+<span class="font-body-sm text-body-sm text-on-surface truncate">Unassigned Operations</span>
+</div>
+<div class="flex gap-unit opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-unit"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="text-on-surface-variant hover:text-error p-unit"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<!-- Empty State Context (Hidden but here for structure) -->
+<!-- <div class="p-xl text-center flex flex-col items-center gap-sm text-on-surface-variant">
+                                    <span class="material-symbols-outlined text-3xl opacity-50">filter_list_off</span>
+                                    <span class="font-body-sm text-body-sm">No saved filters.</span>
+                                </div> -->
+</div>
+</section>
+<!-- System Status Micro-Widget -->
+<div class="bg-surface-bright border border-outline-variant rounded p-md flex items-center gap-md">
+<div class="h-10 w-10 rounded-full bg-surface-container flex items-center justify-center">
+<div class="w-3 h-3 rounded-full bg-primary-container animate-pulse"></div>
+</div>
+<div>
+<span class="block font-label-mono text-label-mono text-on-surface">Config Sync: ACTIVE</span>
+<span class="block font-body-sm text-[10px] text-on-surface-variant mt-px">Last synced: Just now</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer for scrolling past bottom elements if needed -->
+<div class="h-xl"></div>
+</div>
+</main>
+</div>
+<!-- Feedback Toast (Hidden by default, shown via JS ideally) -->
+<div class="fixed bottom-lg right-lg bg-inverse-surface text-inverse-on-surface px-md py-sm rounded border border-surface shadow-lg flex items-center gap-sm transform transition-transform duration-300 translate-y-[150%] z-50" id="save-toast">
+<span class="material-symbols-outlined text-primary-container text-sm">check_circle</span>
+<span class="font-body-sm text-body-sm">Preferences saved successfully.</span>
+</div>
+<script>
+        // Simple script to demonstrate toast functionality
+        document.querySelector('button.bg-primary-container').addEventListener('click', function() {
+            const toast = document.getElementById('save-toast');
+            toast.classList.remove('translate-y-[150%]');
+            setTimeout(() => {
+                toast.classList.add('translate-y-[150%]');
+            }, 3000);
+        });
+    </script>
+</body></html>

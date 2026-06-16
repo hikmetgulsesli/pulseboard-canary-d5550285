@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PulseBoard Canary - Record Operations</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-bright": "#f8f9ff",
+                        "surface-container": "#e5eeff",
+                        "surface-dim": "#cbdbf5",
+                        "error": "#ba1a1a",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed-variant": "#5a4300",
+                        "on-secondary-container": "#5c647a",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#213145",
+                        "on-secondary-fixed": "#131b2e",
+                        "secondary-fixed-dim": "#bec6e0",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-surface-variant": "#4f4633",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#f8f9ff",
+                        "outline-variant": "#d3c5ac",
+                        "surface-tint": "#785a00",
+                        "primary-container": "#eab308",
+                        "on-primary-fixed": "#251a00",
+                        "secondary-fixed": "#dae2fd",
+                        "surface-variant": "#d3e4fe",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#eec200",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-primary": "#ffffff",
+                        "secondary-container": "#dae2fd",
+                        "surface-container-low": "#eff4ff",
+                        "tertiary-fixed": "#ffe083",
+                        "secondary": "#565e74",
+                        "primary-fixed-dim": "#f7be1d",
+                        "inverse-primary": "#f7be1d",
+                        "tertiary": "#735c00",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-background": "#0b1c30",
+                        "tertiary-container": "#e1b700",
+                        "on-primary-container": "#604700",
+                        "on-secondary-fixed-variant": "#3f465c",
+                        "outline": "#817660",
+                        "surface-container-high": "#dce9ff",
+                        "surface-container-highest": "#d3e4fe",
+                        "primary-fixed": "#ffdf9a",
+                        "on-tertiary-container": "#5c4900",
+                        "primary": "#785a00",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "16px",
+                        "unit": "4px",
+                        "xs": "4px",
+                        "gutter": "16px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "container-max": "1440px"
+                    },
+                    "fontFamily": {
+                        "display-lg-mobile": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg-mobile": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-mono": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500"}],
+                        "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+                        "label-caps": ["11px", {"lineHeight": "16px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F8FAFC; }
+        .data-table-row:hover { background-color: #F8FAFC; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #dce9ff; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbdbf5; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-on-surface bg-background flex overflow-hidden h-screen">
+<!-- SideNavBar -->
+<nav class="bg-surface-container dark:bg-on-secondary-fixed h-screen w-64 flex flex-col sticky left-0 top-0 border-r border-outline-variant dark:border-outline flex-shrink-0 hidden md:flex z-20">
+<div class="flex flex-col gap-sm p-md h-full">
+<div class="mb-lg pt-sm px-sm">
+<div class="flex items-center gap-sm mb-xs">
+<img alt="PulseBoard Admin" class="w-8 h-8 rounded-full" data-alt="A small, professional user avatar for an admin profile. The avatar is round with a bright canary yellow background and dark navy blue initials. It fits perfectly within a clean, modern dashboard interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDgtbNlakbmlgqeCxrFrn4Wdr-tc4-1RaduL17-6HXBL_S5B-vfRzXEMmCYcMJzgxcDkT0We-hoVn3CpN-9a89iclcSwxSUvcKnLKiD4d_-kmf7_cjZRpr7btdPFZyXBWchMMH7GBWJWSHe58uhUHx0kcvDoB4CKqbAv7HuRJ4dAcM4Kuup1JZYKjqJFA0oHp2ZfYFiYyBKniM0ygyHUEpYtIIsu-w9W7eouoJuGAMJkhOQK1gunI25zZTR6ufZg4AOAd5SPquYmc"/>
+<div>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">PulseBoard</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Canary v1.0</p>
+</div>
+</div>
+</div>
+<button class="bg-primary-container text-on-primary-fixed hover:bg-tertiary-fixed font-body-md text-body-md font-semibold py-sm px-md rounded transition-colors flex items-center justify-center gap-sm w-full mb-lg shadow-sm border border-transparent">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                New Record
+            </button>
+<div class="flex-grow flex flex-col gap-unit">
+<a class="bg-primary-container dark:bg-on-primary-fixed-variant text-on-primary-container dark:text-primary-fixed rounded-lg font-semibold flex items-center gap-md px-sm py-sm transition-all duration-150" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">analytics</span>
+                    Operations
+                </a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg flex items-center gap-md px-sm py-sm transition-all duration-150" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+                    Editor
+                </a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg flex items-center gap-md px-sm py-sm transition-all duration-150" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg flex items-center gap-md px-sm py-sm transition-all duration-150" href="#">
+<span class="material-symbols-outlined">medication</span>
+                    Recovery
+                </a>
+</div>
+<div class="mt-auto flex flex-col gap-unit pt-md border-t border-outline-variant/30">
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg flex items-center gap-md px-sm py-sm transition-all duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined">support</span>
+                    Support
+                </a>
+<a class="text-on-secondary-container dark:text-secondary-fixed-dim hover:bg-surface-container-high dark:hover:bg-secondary-container rounded-lg flex items-center gap-md px-sm py-sm transition-all duration-150 font-body-sm text-body-sm" href="#">
+<span class="material-symbols-outlined">history</span>
+                    Logs
+                </a>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-grow flex flex-col min-w-0 overflow-hidden relative z-10">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest dark:bg-on-surface border-b border-outline-variant dark:border-outline flex justify-between items-center w-full px-lg py-sm h-16 flex-shrink-0 z-20">
+<div class="flex items-center md:hidden">
+<h2 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim tracking-tight">PulseBoard Canary</h2>
+</div>
+<div class="hidden md:flex items-center w-1/3">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full pl-xl pr-sm py-sm bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search records, IDs..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-sm ml-auto">
+<button class="p-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors duration-200 ease-in-out rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">help</span>
+</button>
+<button class="p-sm text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-surface-variant transition-colors duration-200 ease-in-out rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Canvas -->
+<main class="flex-grow flex overflow-hidden p-md gap-md">
+<!-- Left Column: Main Data -->
+<div class="flex-grow flex flex-col gap-md min-w-0 overflow-hidden">
+<!-- Summary Metrics -->
+<div class="grid grid-cols-3 gap-md flex-shrink-0">
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-unit">Total Records</p>
+<p class="font-display-lg text-display-lg text-on-surface">1,248</p>
+</div>
+<div class="h-10 w-10 rounded bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">database</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-unit">Active Ops</p>
+<p class="font-display-lg text-display-lg text-on-surface">34</p>
+</div>
+<div class="h-10 w-10 rounded bg-tertiary-container flex items-center justify-center text-on-tertiary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded p-md flex items-center justify-between">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider mb-unit">Success Rate</p>
+<p class="font-display-lg text-display-lg text-on-surface">99.8%</p>
+</div>
+<div class="h-10 w-10 rounded bg-[#dcfce7] flex items-center justify-center text-[#166534]">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Data Table Panel -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col flex-grow overflow-hidden relative">
+<!-- Table Toolbar -->
+<div class="bg-surface-bright border-b border-outline-variant p-sm flex items-center justify-between flex-shrink-0">
+<div class="flex items-center gap-sm">
+<select class="bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm py-unit px-sm focus:outline-none focus:border-primary-container">
+<option>All Statuses</option>
+<option>Processing</option>
+<option>Completed</option>
+<option>Failed</option>
+</select>
+<select class="bg-surface-container-lowest border border-outline-variant rounded font-body-sm text-body-sm py-unit px-sm focus:outline-none focus:border-primary-container">
+<option>Last 24 Hours</option>
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+</select>
+</div>
+<div class="flex items-center gap-sm">
+<button class="bg-surface-container-lowest border border-outline-variant hover:bg-surface-bright text-on-surface font-body-sm text-body-sm py-unit px-sm rounded flex items-center gap-xs transition-colors">
+<span class="material-symbols-outlined text-[16px]">refresh</span>
+                                Retry Load
+                            </button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-auto flex-grow custom-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-bright border-b border-outline-variant z-10">
+<tr>
+<th class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider p-sm pl-md font-semibold">Record ID</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider p-sm font-semibold">Status</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider p-sm font-semibold">Timestamp</th>
+<th class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider p-sm pr-md font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="font-label-mono text-label-mono text-on-surface divide-y divide-outline-variant/50">
+<tr class="data-table-row transition-colors cursor-pointer group">
+<td class="p-sm pl-md">REC-99201</td>
+<td class="p-sm">
+<span class="inline-flex items-center gap-xs px-xs py-[2px] rounded bg-[#dcfce7] text-[#166534] font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check</span> COMPLETED
+                                        </span>
+</td>
+<td class="p-sm text-on-surface-variant">2023-10-27 14:32:01</td>
+<td class="p-sm pr-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="data-table-row transition-colors cursor-pointer group border-l-2 border-primary-container bg-surface-container/30">
+<td class="p-sm pl-md font-bold">REC-99200</td>
+<td class="p-sm">
+<span class="inline-flex items-center gap-xs px-xs py-[2px] rounded bg-tertiary-container/20 text-on-tertiary-container font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px] animate-pulse">sync</span> PROCESSING
+                                        </span>
+</td>
+<td class="p-sm text-on-surface-variant">2023-10-27 14:30:45</td>
+<td class="p-sm pr-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="data-table-row transition-colors cursor-pointer group">
+<td class="p-sm pl-md">REC-99199</td>
+<td class="p-sm">
+<span class="inline-flex items-center gap-xs px-xs py-[2px] rounded bg-error-container text-on-error-container font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">close</span> FAILED
+                                        </span>
+</td>
+<td class="p-sm text-on-surface-variant">2023-10-27 14:28:12</td>
+<td class="p-sm pr-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="data-table-row transition-colors cursor-pointer group">
+<td class="p-sm pl-md">REC-99198</td>
+<td class="p-sm">
+<span class="inline-flex items-center gap-xs px-xs py-[2px] rounded bg-[#dcfce7] text-[#166534] font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check</span> COMPLETED
+                                        </span>
+</td>
+<td class="p-sm text-on-surface-variant">2023-10-27 14:15:00</td>
+<td class="p-sm pr-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</td>
+</tr>
+<tr class="data-table-row transition-colors cursor-pointer group">
+<td class="p-sm pl-md">REC-99197</td>
+<td class="p-sm">
+<span class="inline-flex items-center gap-xs px-xs py-[2px] rounded bg-[#dcfce7] text-[#166534] font-label-caps text-[10px]">
+<span class="material-symbols-outlined text-[12px]">check</span> COMPLETED
+                                        </span>
+</td>
+<td class="p-sm text-on-surface-variant">2023-10-27 14:10:22</td>
+<td class="p-sm pr-md text-right">
+<button class="text-on-surface-variant hover:text-primary transition-colors opacity-0 group-hover:opacity-100">
+<span class="material-symbols-outlined text-[18px]">edit</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Right Column: Details & Timeline -->
+<div class="w-80 flex-shrink-0 flex flex-col gap-md hidden lg:flex">
+<!-- Details Drawer (Simulated inline) -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col flex-grow overflow-hidden relative shadow-[0_4px_6px_-1px_rgb(0,0,0,0.1)] border-t-4 border-t-primary-container">
+<div class="p-md border-b border-outline-variant bg-surface-bright flex justify-between items-start">
+<div>
+<h3 class="font-headline-md text-headline-md font-bold text-on-surface">REC-99200</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-unit">Metadata Inspection</p>
+</div>
+<button class="text-on-surface-variant hover:text-on-surface">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="p-md flex-grow overflow-auto custom-scrollbar flex flex-col gap-md">
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-unit">Current Status</p>
+<div class="flex items-center gap-sm">
+<span class="inline-flex items-center gap-xs px-sm py-unit rounded bg-tertiary-container/20 text-on-tertiary-container font-label-caps">
+<span class="material-symbols-outlined text-[14px] animate-spin">sync</span> PROCESSING
+                                </span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Elapsed: 02m 15s</span>
+</div>
+</div>
+<div class="bg-surface-container rounded p-sm border border-outline-variant/50">
+<p class="font-label-mono text-label-mono text-on-surface break-all">
+                                Payload ID: pld_8847291a<br/>
+                                Source: API_Gateway_Prod<br/>
+                                Target Node: cluster-04
+                            </p>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant mb-unit">Actions</p>
+<div class="flex gap-sm">
+<button class="flex-1 bg-surface-container-lowest border border-outline-variant hover:bg-surface-bright text-on-surface font-body-sm text-body-sm py-unit px-sm rounded transition-colors text-center">
+                                    Pause
+                                </button>
+<button class="flex-1 bg-error-container/20 border border-error-container text-on-error-container hover:bg-error-container/30 font-body-sm text-body-sm py-unit px-sm rounded transition-colors text-center">
+                                    Terminate
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Timeline -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded flex flex-col h-1/3 overflow-hidden">
+<div class="p-sm border-b border-outline-variant bg-surface-bright">
+<h4 class="font-label-caps text-label-caps text-on-surface-variant uppercase tracking-wider">Recent Activity</h4>
+</div>
+<div class="p-sm flex-grow overflow-auto custom-scrollbar font-body-sm text-body-sm">
+<div class="relative pl-md pb-sm border-l border-outline-variant ml-sm">
+<span class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-tertiary-container"></span>
+<p class="text-on-surface">REC-99200 started processing.</p>
+<p class="text-on-surface-variant font-label-mono text-[10px]">Just now</p>
+</div>
+<div class="relative pl-md pb-sm border-l border-outline-variant ml-sm">
+<span class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-[#166534]"></span>
+<p class="text-on-surface">REC-99201 completed successfully.</p>
+<p class="text-on-surface-variant font-label-mono text-[10px]">2 mins ago</p>
+</div>
+<div class="relative pl-md pb-sm border-l border-transparent ml-sm">
+<span class="absolute -left-[5px] top-1 w-2 h-2 rounded-full bg-error"></span>
+<p class="text-on-surface">REC-99199 failed validation.</p>
+<p class="text-on-surface-variant font-label-mono text-[10px]">5 mins ago</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>
