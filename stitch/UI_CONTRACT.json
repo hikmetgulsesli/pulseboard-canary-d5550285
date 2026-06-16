@@ -1,0 +1,1000 @@
+[
+  {
+    "screenId": "3c6955e5ccfb4748a078ad6a7f1b4ff2",
+    "screenTitle": "Settings and Preferences - PulseBoard Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 136
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 140
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 150
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 154
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 127
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 179
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 196
+      },
+      {
+        "type": "button",
+        "label": "Preferences",
+        "line": 199
+      },
+      {
+        "type": "button",
+        "label": "Add Filter",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 315
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 326
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 327
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 337
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 338
+      },
+      {
+        "type": "input",
+        "label": "Search parameters...",
+        "inputType": "text",
+        "placeholder": "Search parameters...",
+        "line": 171
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 219
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 232
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 242
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 259
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 282
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 132
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 136
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 140
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 144
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 150
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 154
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 127
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 179
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "Reset to Defaults",
+        "line": 196
+      },
+      {
+        "type": "button",
+        "label": "Preferences",
+        "line": 199
+      },
+      {
+        "type": "button",
+        "label": "Add Filter",
+        "line": 303
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 315
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 326
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 327
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 337
+      },
+      {
+        "type": "button",
+        "label": "delete",
+        "line": 338
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search parameters...",
+        "inputType": "text",
+        "placeholder": "Search parameters...",
+        "line": 171
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 219
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 232
+      },
+      {
+        "type": "input",
+        "label": "checkbox",
+        "inputType": "checkbox",
+        "line": 242
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 259
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 282
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 25,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "9fdbdb89d1524edab1fc90c2ec98f3e6",
+    "screenTitle": "Record Operations - PulseBoard Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 148
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 152
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 125
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 233
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 260
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 274
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 288
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 302
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 335
+      },
+      {
+        "type": "button",
+        "label": "Pause",
+        "line": 359
+      },
+      {
+        "type": "button",
+        "label": "Terminate",
+        "line": 362
+      },
+      {
+        "type": "input",
+        "label": "Search records, IDs...",
+        "inputType": "text",
+        "placeholder": "Search records, IDs...",
+        "line": 169
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 220
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 226
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 130
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 134
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 138
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 148
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 152
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 125
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 173
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 176
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 233
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 260
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 274
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 288
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 302
+      },
+      {
+        "type": "button",
+        "label": "edit",
+        "line": 316
+      },
+      {
+        "type": "button",
+        "label": "close",
+        "line": 335
+      },
+      {
+        "type": "button",
+        "label": "Pause",
+        "line": 359
+      },
+      {
+        "type": "button",
+        "label": "Terminate",
+        "line": 362
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records, IDs...",
+        "inputType": "text",
+        "placeholder": "Search records, IDs...",
+        "line": 169
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 220
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 226
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 21,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "97fbfcb3dd834a02b8e36cbc73d602b1",
+    "screenTitle": "Empty and Error Recovery - PulseBoard Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 157
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 161
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 166
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 173
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 177
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 147
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 202
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 205
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 233
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 237
+      },
+      {
+        "type": "input",
+        "label": "Search telemetry...",
+        "inputType": "text",
+        "placeholder": "Search telemetry...",
+        "line": 199
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 153
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 157
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 161
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 166
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 173
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 177
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 147
+      },
+      {
+        "type": "button",
+        "label": "menu",
+        "line": 189
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 202
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 205
+      },
+      {
+        "type": "button",
+        "label": "Retry Load",
+        "line": 233
+      },
+      {
+        "type": "button",
+        "label": "Clear Filters",
+        "line": 237
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search telemetry...",
+        "inputType": "text",
+        "placeholder": "Search telemetry...",
+        "line": 199
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 13,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  },
+  {
+    "screenId": "dabe5bf52ebc44398304e62bb56fcfb4",
+    "screenTitle": "Record Editor - PulseBoard Canary",
+    "deviceType": "DESKTOP",
+    "elements": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 136
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 147
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 152
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 160
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 165
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 208
+      },
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Discard",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "Save Now",
+        "line": 201
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 216
+      },
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 179
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 236
+      },
+      {
+        "type": "input",
+        "label": "textarea",
+        "inputType": "textarea",
+        "line": 247
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 263
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 290
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 296
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 302
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 315
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 331
+      }
+    ],
+    "navigation": [
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 136
+      },
+      {
+        "type": "link",
+        "label": "Editor",
+        "href": "#",
+        "line": 142
+      },
+      {
+        "type": "link",
+        "label": "settings",
+        "href": "#",
+        "line": 147
+      },
+      {
+        "type": "link",
+        "label": "Recovery",
+        "href": "#",
+        "line": 152
+      },
+      {
+        "type": "link",
+        "label": "support",
+        "href": "#",
+        "line": 160
+      },
+      {
+        "type": "link",
+        "label": "Logs",
+        "href": "#",
+        "line": 165
+      },
+      {
+        "type": "link",
+        "label": "Operations",
+        "href": "#",
+        "line": 208
+      }
+    ],
+    "buttons": [
+      {
+        "type": "button",
+        "label": "New Record",
+        "line": 130
+      },
+      {
+        "type": "button",
+        "label": "help",
+        "line": 182
+      },
+      {
+        "type": "button",
+        "label": "account_circle",
+        "line": 185
+      },
+      {
+        "type": "button",
+        "label": "Discard",
+        "line": 200
+      },
+      {
+        "type": "button",
+        "label": "Save Now",
+        "line": 201
+      },
+      {
+        "type": "button",
+        "label": "Cancel",
+        "line": 215
+      },
+      {
+        "type": "button",
+        "label": "Record",
+        "line": 216
+      }
+    ],
+    "inputs": [
+      {
+        "type": "input",
+        "label": "Search records...",
+        "inputType": "text",
+        "placeholder": "Search records...",
+        "line": 179
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 236
+      },
+      {
+        "type": "input",
+        "label": "textarea",
+        "inputType": "textarea",
+        "line": 247
+      },
+      {
+        "type": "input",
+        "label": "text",
+        "inputType": "text",
+        "line": 263
+      },
+      {
+        "type": "input",
+        "label": "number",
+        "inputType": "number",
+        "line": 270
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 290
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 296
+      },
+      {
+        "type": "input",
+        "label": "radio",
+        "inputType": "radio",
+        "line": 302
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 315
+      },
+      {
+        "type": "input",
+        "label": "select",
+        "inputType": "select",
+        "line": 331
+      }
+    ],
+    "hardcodedData": [],
+    "totalInteractive": 24,
+    "requiresRouter": false,
+    "requiresDragDrop": false
+  }
+]
