@@ -1,0 +1,443 @@
+[
+  {
+    "screenId": "3c6955e5ccfb4748a078ad6a7f1b4ff2",
+    "title": "Settings and Preferences - PulseBoard Canary",
+    "componentName": "SettingsAndPreferencesPulseboardCanary",
+    "file": "src/screens/SettingsAndPreferencesPulseboardCanary.tsx",
+    "buttons": 12,
+    "inputs": 6,
+    "links": 6,
+    "actions": [
+      {
+        "id": "new-record-1",
+        "kind": "button",
+        "label": "New Record",
+        "index": 0
+      },
+      {
+        "id": "help-2",
+        "kind": "button",
+        "label": "Help",
+        "index": 1
+      },
+      {
+        "id": "account-circle-3",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 2
+      },
+      {
+        "id": "reset-to-defaults-4",
+        "kind": "button",
+        "label": "Reset to Defaults",
+        "index": 3
+      },
+      {
+        "id": "save-preferences-5",
+        "kind": "button",
+        "label": "Save Preferences",
+        "index": 4
+      },
+      {
+        "id": "add-filter-6",
+        "kind": "button",
+        "label": "Add Filter",
+        "index": 5
+      },
+      {
+        "id": "edit-7",
+        "kind": "button",
+        "label": "Edit",
+        "index": 6
+      },
+      {
+        "id": "delete-8",
+        "kind": "button",
+        "label": "Delete",
+        "index": 7
+      },
+      {
+        "id": "edit-9",
+        "kind": "button",
+        "label": "Edit",
+        "index": 8
+      },
+      {
+        "id": "delete-10",
+        "kind": "button",
+        "label": "Delete",
+        "index": 9
+      },
+      {
+        "id": "edit-11",
+        "kind": "button",
+        "label": "Edit",
+        "index": 10
+      },
+      {
+        "id": "delete-12",
+        "kind": "button",
+        "label": "Delete",
+        "index": 11
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "recovery-4",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "logs-6",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 5
+      }
+    ]
+  },
+  {
+    "screenId": "9fdbdb89d1524edab1fc90c2ec98f3e6",
+    "title": "Record Operations - PulseBoard Canary",
+    "componentName": "RecordOperationsPulseboardCanary",
+    "file": "src/screens/RecordOperationsPulseboardCanary.tsx",
+    "buttons": 12,
+    "inputs": 1,
+    "links": 6,
+    "actions": [
+      {
+        "id": "new-record-1",
+        "kind": "button",
+        "label": "New Record",
+        "index": 0
+      },
+      {
+        "id": "help-2",
+        "kind": "button",
+        "label": "Help",
+        "index": 1
+      },
+      {
+        "id": "account-circle-3",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 2
+      },
+      {
+        "id": "retry-load-4",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 3
+      },
+      {
+        "id": "edit-5",
+        "kind": "button",
+        "label": "Edit",
+        "index": 4
+      },
+      {
+        "id": "edit-6",
+        "kind": "button",
+        "label": "Edit",
+        "index": 5
+      },
+      {
+        "id": "edit-7",
+        "kind": "button",
+        "label": "Edit",
+        "index": 6
+      },
+      {
+        "id": "edit-8",
+        "kind": "button",
+        "label": "Edit",
+        "index": 7
+      },
+      {
+        "id": "edit-9",
+        "kind": "button",
+        "label": "Edit",
+        "index": 8
+      },
+      {
+        "id": "close-10",
+        "kind": "button",
+        "label": "Close",
+        "index": 9
+      },
+      {
+        "id": "pause-11",
+        "kind": "button",
+        "label": "Pause",
+        "index": 10
+      },
+      {
+        "id": "terminate-12",
+        "kind": "button",
+        "label": "Terminate",
+        "index": 11
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "recovery-4",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "logs-6",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 5
+      }
+    ]
+  },
+  {
+    "screenId": "97fbfcb3dd834a02b8e36cbc73d602b1",
+    "title": "Empty and Error Recovery - PulseBoard Canary",
+    "componentName": "EmptyAndErrorRecoveryPulseboardCanary",
+    "file": "src/screens/EmptyAndErrorRecoveryPulseboardCanary.tsx",
+    "buttons": 6,
+    "inputs": 1,
+    "links": 6,
+    "actions": [
+      {
+        "id": "new-record-1",
+        "kind": "button",
+        "label": "New Record",
+        "index": 0
+      },
+      {
+        "id": "menu-2",
+        "kind": "button",
+        "label": "Menu",
+        "index": 1
+      },
+      {
+        "id": "help-3",
+        "kind": "button",
+        "label": "Help",
+        "index": 2
+      },
+      {
+        "id": "account-circle-4",
+        "kind": "button",
+        "label": "Account Circle",
+        "index": 3
+      },
+      {
+        "id": "retry-load-5",
+        "kind": "button",
+        "label": "Retry Load",
+        "index": 4
+      },
+      {
+        "id": "clear-filters-6",
+        "kind": "button",
+        "label": "Clear Filters",
+        "index": 5
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "recovery-4",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "logs-6",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 5
+      }
+    ]
+  },
+  {
+    "screenId": "dabe5bf52ebc44398304e62bb56fcfb4",
+    "title": "Record Editor - PulseBoard Canary",
+    "componentName": "RecordEditorPulseboardCanary",
+    "file": "src/screens/RecordEditorPulseboardCanary.tsx",
+    "buttons": 7,
+    "inputs": 7,
+    "links": 7,
+    "actions": [
+      {
+        "id": "new-record-1",
+        "kind": "button",
+        "label": "New Record",
+        "index": 0
+      },
+      {
+        "id": "help-2",
+        "kind": "button",
+        "label": "help",
+        "index": 1
+      },
+      {
+        "id": "account-circle-3",
+        "kind": "button",
+        "label": "account_circle",
+        "index": 2
+      },
+      {
+        "id": "discard-4",
+        "kind": "button",
+        "label": "Discard",
+        "index": 3
+      },
+      {
+        "id": "save-now-5",
+        "kind": "button",
+        "label": "Save Now",
+        "index": 4
+      },
+      {
+        "id": "cancel-6",
+        "kind": "button",
+        "label": "Cancel",
+        "index": 5
+      },
+      {
+        "id": "save-record-7",
+        "kind": "button",
+        "label": "Save Record",
+        "index": 6
+      },
+      {
+        "id": "operations-1",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 0
+      },
+      {
+        "id": "editor-2",
+        "kind": "link",
+        "label": "Editor",
+        "href": "#",
+        "index": 1
+      },
+      {
+        "id": "settings-3",
+        "kind": "link",
+        "label": "Settings",
+        "href": "#",
+        "index": 2
+      },
+      {
+        "id": "recovery-4",
+        "kind": "link",
+        "label": "Recovery",
+        "href": "#",
+        "index": 3
+      },
+      {
+        "id": "support-5",
+        "kind": "link",
+        "label": "Support",
+        "href": "#",
+        "index": 4
+      },
+      {
+        "id": "logs-6",
+        "kind": "link",
+        "label": "Logs",
+        "href": "#",
+        "index": 5
+      },
+      {
+        "id": "operations-7",
+        "kind": "link",
+        "label": "Operations",
+        "href": "#",
+        "index": 6
+      }
+    ]
+  }
+]
