@@ -35,6 +35,9 @@ export function loadPersistedState(): PersistedState | null {
     if (!raw) return null;
     const parsed = JSON.parse(raw) as PersistedState;
     if (!parsed || typeof parsed !== 'object') return null;
+    if (!Array.isArray(parsed.records)) return null;
+    if (!parsed.preferences || typeof parsed.preferences !== 'object') return null;
+    if (!Array.isArray(parsed.preferences.filters)) return null;
     return parsed;
   } catch {
     return null;

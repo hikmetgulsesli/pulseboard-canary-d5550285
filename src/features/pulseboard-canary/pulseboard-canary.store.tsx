@@ -78,6 +78,20 @@ function makeId(): string {
   return `rec-${Math.random().toString(36).slice(2, 9)}`;
 }
 
+function initAppState(): AppState {
+  const persisted = loadPersistedState();
+  if (persisted) {
+    return {
+      ...initialAppState,
+      records: persisted.records,
+      preferences: persisted.preferences,
+      lastSavedAt: persisted.lastSavedAt,
+      now: Date.now(),
+    };
+  }
+  return { ...initialAppState, now: Date.now() };
+}
+
 export function appReducer(state: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'hydrate':
@@ -171,6 +185,8 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       };
 
     case 'pause-record': {
+      const hasActiveRecord = state.records.some((r) => r.id === action.id && r.status === 'active');
+      if (!hasActiveRecord) return state;
       const records = state.records.map((r) =>
         r.id === action.id && r.status === 'active'
           ? { ...r, status: 'paused' as const, updatedAt: state.now }
@@ -180,6 +196,10 @@ export function appReducer(state: AppState, action: AppAction): AppState {
     }
 
     case 'terminate-record': {
+      const hasMutableRecord = state.records.some(
+        (r) => r.id === action.id && r.status !== 'terminated',
+      );
+      if (!hasMutableRecord) return state;
       const records = state.records.map((r) =>
         r.id === action.id && r.status !== 'terminated'
           ? { ...r, status: 'terminated' as const, updatedAt: state.now }
@@ -222,7 +242,9 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       };
     }
 
-    case 'remove-filter':
+    case 'remove-filter': {
+      const exists = state.preferences.filters.some((f) => f.id === action.id);
+      if (!exists) return state;
       return {
         ...state,
         preferences: {
@@ -230,6 +252,7 @@ export function appReducer(state: AppState, action: AppAction): AppState {
           filters: state.preferences.filters.filter((f) => f.id !== action.id),
         },
       };
+    }
 
     case 'set-loading':
       return { ...state, loading: action.loading };
@@ -276,7 +299,7 @@ interface AppContextValue {
 const AppContext = createContext<AppContextValue | null>(null);
 
 export function PulseboardCanaryProvider({ children }: { children: ReactNode }) {
-  const [state, dispatch] = useReducer(appReducer, initialAppState);
+  const [state, dispatch] = useReducer(appReducer, undefined, initAppState);
   const actions: AppActions = useMemo(
     () => ({
       setView: (view) => dispatch({ type: 'set-view', view }),
@@ -300,30 +323,6 @@ export function PulseboardCanaryProvider({ children }: { children: ReactNode }) 
     }),
     [],
   );
-
-  // Hydrate from persisted storage once on mount.
-  useEffect(() => {
-    const persisted = loadPersistedState();
-    if (persisted) {
-      dispatch({
-        type: 'hydrate',
-        payload: {
-          records: persisted.records,
-          preferences: persisted.preferences,
-          lastSavedAt: persisted.lastSavedAt,
-        },
-      });
-    } else {
-      dispatch({
-        type: 'hydrate',
-        payload: {
-          records: sampleRecords,
-          preferences: defaultPreferences,
-          lastSavedAt: null,
-        },
-      });
-    }
-  }, []);
 
   // Scheduled runtime loop that dispatches a tick action.
   useEffect(() => {
@@ -361,7 +360,7 @@ export function PulseboardCanaryProvider({ children }: { children: ReactNode }) 
     };
     globalThis.app = exposed;
     window.app = exposed;
-  }, [state, actions]);
+  }, []);
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
